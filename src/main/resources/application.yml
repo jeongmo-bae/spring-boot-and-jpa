@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: spring-boot-and-jpa
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/project_spring_jpa_shop?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: user
+    password: user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create  # 개발 시: create, 운영 시: validate
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
