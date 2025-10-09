@@ -14,10 +14,26 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        show_sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        # show_sql은 System.out으로만 찍힘
+        show_sql: false
+#        dialect: org.hibernate.dialect.MySQLDialect
 
 logging:
   level:
+    # Hibernate SQL (실행되는 쿼리)
     org.hibernate.SQL: debug
-    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+    # Hibernate 6: 바인딩 파라미터 / ResultSet 추출
+    org.hibernate.orm.jdbc.bind: trace
+    org.hibernate.orm.jdbc.extract: trace
+
+    # (호환용) Hibernate 5 계열 프로젝트에서만 필요
+    # org.hibernate.type.descriptor.sql: trace
+
+    # Spring 트랜잭션 매니저 로그
+    org.springframework.transaction: debug
+    org.springframework.orm.jpa: debug
+
+    # 테스트에서 시작/커밋/롤백 등 TestContext가 찍는 로그
+    org.springframework.test.context.transaction: debug
+
