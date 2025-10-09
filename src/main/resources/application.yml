@@ -22,13 +22,12 @@ logging:
   level:
     # Hibernate SQL (실행되는 쿼리)
     org.hibernate.SQL: debug
+    # (선택) SQL 실행 통계 보고 싶다면
+    org.hibernate.stat: debug
 
     # Hibernate 6: 바인딩 파라미터 / ResultSet 추출
     org.hibernate.orm.jdbc.bind: trace
     org.hibernate.orm.jdbc.extract: trace
-
-    # (호환용) Hibernate 5 계열 프로젝트에서만 필요
-    # org.hibernate.type.descriptor.sql: trace
 
     # Spring 트랜잭션 매니저 로그
     org.springframework.transaction: debug
@@ -36,4 +35,10 @@ logging:
 
     # 테스트에서 시작/커밋/롤백 등 TestContext가 찍는 로그
     org.springframework.test.context.transaction: debug
+
+    # (선택) 커넥션 풀 관련 - 성능 이슈 디버깅 시
+    com.zaxxer.hikari: debug
+
+
+
 
